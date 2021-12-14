@@ -1,4 +1,4 @@
-print ("hello word")
+print ("hello world")
 import time
 import json
 import web3
