@@ -80,6 +80,14 @@ if tx_receipt is None:
 #13: Check the contract address before calling the greet function, and construct the instance with the correct address:
 
 print("Contract address is:",tx_receipt.contractAddress)
+greeter = W3.eth.contract(
+  address=tx_receipt.contractAddress,
+  abi=abi
+)
+
+
+print("Output from greet()")
+print(greeter.functions.greet().call())
 nonce = W3.eth.getTransactionCount(address1)
 tx_dict = greeter.functions.setGreeting('Help Me').buildTransaction({
   'chainId': 3,
